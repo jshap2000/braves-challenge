@@ -7,7 +7,7 @@ CORS(app)
 
 df = pd.read_csv('BattedBallData_with_xwOBACon.csv')
 league_average_xwOBACON = df['xwOBACon'].mean()
-average_wOBACon = df['wOBACon'].mean()
+league_average_wOBACon = df['wOBACon'].mean()
 exit_velocity_mean = df['EXIT_SPEED'].mean()
 
 league_sweet_spot_swing_percent_mean = df[(df['LAUNCH_ANGLE'] > 8) & (df['LAUNCH_ANGLE'] < 32)].shape[0]/df.shape[0]
@@ -39,7 +39,7 @@ def get_baseball_data():
         "wOBACON": round(filtered_df['wOBACon'].mean(), 3),
         "Exit Velocity": round(filtered_df['EXIT_SPEED'].mean(), 1),
         "% Sweet Spot": round(sweet_spot_swing_percent_mean*100, 1),
-        "leagueAveragewOBA": round(league_average_xwOBACON, 3),
+        "leagueAveragewOBA": round(league_average_wOBACon, 3),
         "leagueAveragexwOBA": round(league_average_xwOBACON, 3),
         "leagueAverageExitVelocity": round(exit_velocity_mean, 1),
         "leagueAverageSweetSpotPercent": round(league_sweet_spot_swing_percent_mean*100, 1),
