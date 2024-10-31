@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Field Visualization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .field {
+            fill: green;
+            stroke: black;
+            stroke-width: 2;
+        }
+        .ball {
+            fill: red;
+            stroke: black;
+            stroke-width: 1;
+        }
+        
+        .menu.visible {
+            display: block !important;
+        }
+
+        .spectrum-legend {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 300px;
+            position: relative;
+        }
+        .spectrum-bar {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to right, blue, red);
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .spectrum-label {
+            position: absolute;
+            top: 25px; 
+            font-size: 14px;
+        }
+        .label-0 {
+            left: 0;
+        }
+        .label-2105 {
+            right: 0;
+        }
+        .spectrum-stat {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .legend {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        .red { background-color: red; }
+        .yellow { background-color: yellow; }
+        .blue { background-color: blue; }
+
+        #player-selection {
+            width: 300px;
+            margin: 0 auto; 
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        #xwOBACON-legend {
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="player-selection">
+        <div class="ui fluid search selection dropdown" id="dropdown">
+            <input type="hidden" name="dropdown">
+            <i class="dropdown icon"></i>
+            <div class="default text">Select a Player</div>
+            <div class="menu"></div>
+        </div>
+    </div>
+    <div class="ui two column grid">
+        <div class="column center aligned">
+            <h1 class="ui header">Batted Ball Data</h1>
+            <p><svg width="550" height="425" id="baseball-field"></svg></p>
+            <div class="spectrum-stat">xwOBACON</div>
+            <div class="spectrum-legend" id="xwOBACON-legend">
+                <div class="spectrum-bar"></div>
+                <div class="spectrum-label label-0">0</div>
+                <div class="spectrum-label label-2105">2105</div>
+            </div>
+            <h1 class="ui header">Exit Velocity</h1>
+            <svg id="exit-velocity" width="500" height="500"></svg>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color red"></div>
+                    <span>Hard Hit</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color blue"></div>
+                    <span>Not Hard Hit</span>
+                </div>
+            </div>
+        </div>
+        <div class="column center aligned">
+            <h1 class="ui header">Stats</h1>
+            <div id="table-container"></div>
+            <h1 class="ui header">Launch Angle</h1>
+            <svg id="launch-angle" width="500" height="500"></svg>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color red"></div>
+                    <span>Sweet Spot</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color yellow"></div>
+                    <span>Flare</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color blue"></div>
+                    <span>Poor Angle</span>
+                </div>
+            </div>
+        </div>
+      </div>
+    
+    <script src="baseball.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>
