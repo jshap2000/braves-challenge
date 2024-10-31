@@ -72,7 +72,7 @@
         }
         .red { background-color: red; }
         .yellow { background-color: yellow; }
-        .blue { background-color: blue; }
+        .blue { background-color: lightblue; }
 
         #player-selection {
             width: 300px;
@@ -83,6 +83,12 @@
 
         #xwOBACON-legend {
             margin: 0 auto;
+        }
+
+        #stats-container {
+            width: 500px;
+            margin: 0 auto;
+            padding-bottom: 20px;
         }
 
     </style>
@@ -98,6 +104,10 @@
     </div>
     <div class="ui two column grid">
         <div class="column center aligned">
+            <h1 class="ui header">Stats</h1>
+            <div id="stats-container">
+                <div id="table-container"></div>
+            </div>
             <h1 class="ui header">Batted Ball Data</h1>
             <p><svg width="550" height="425" id="baseball-field"></svg></p>
             <div class="spectrum-stat">xwOBACON</div>
@@ -106,8 +116,10 @@
                 <div class="spectrum-label label-0">0</div>
                 <div class="spectrum-label label-2105">2105</div>
             </div>
+        </div>
+        <div class="column center aligned">
             <h1 class="ui header">Exit Velocity</h1>
-            <svg id="exit-velocity" width="500" height="500"></svg>
+            <svg id="exit-velocity" width="325" height="325"></svg>
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-color red"></div>
@@ -118,12 +130,8 @@
                     <span>Not Hard Hit</span>
                 </div>
             </div>
-        </div>
-        <div class="column center aligned">
-            <h1 class="ui header">Stats</h1>
-            <div id="table-container"></div>
             <h1 class="ui header">Launch Angle</h1>
-            <svg id="launch-angle" width="500" height="500"></svg>
+            <svg id="launch-angle" width="325" height="325"></svg>
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-color red"></div>

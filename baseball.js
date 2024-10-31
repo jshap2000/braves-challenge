@@ -17,8 +17,8 @@ function getPlayerStats(id) {
  the different ranges that mlb classifies batted balls into with color coding.
 */
 function createLaunchAngleScatterPlot(launchAngleData) {
-    const width = 500;
-    const height = 500;
+    const width = 325;
+    const height = 325;
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
     const angles = launchAngleData.map(item => ({
@@ -93,8 +93,8 @@ function createLaunchAngleScatterPlot(launchAngleData) {
  over 95 MPH is a hard-hit ball and is shaded in red.
 */
 function createExitVelocityScatterPlot(battedBallData) {
-    const width = 500;
-    const height = 500;
+    const width = 325;
+    const height = 325;
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
     const velocity = battedBallData.map(item => ({
@@ -118,7 +118,7 @@ function createExitVelocityScatterPlot(battedBallData) {
         .attr("width", xScale(width) - xScale(0))
         .attr("height", yScale(40) - yScale(95))
         .attr("class", "range")
-        .style("fill", "blue");
+        .style("fill", "lightblue");
 
     svg.append("rect")
         .attr("x", xScale(0))
