@@ -6,7 +6,7 @@
 
 `python3 -m venv myenv`
 
-2. tivate your virtual environment
+2. Activate your virtual environment
 
 `source myenv/bin/activate`
 
